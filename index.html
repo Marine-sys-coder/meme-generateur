@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Générateur</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-content">
+            <span class="logo"> Memes </span>
+            <div class="nav-links">
+                <a href="#editor">Créer</a>
+                <a href="#about">À propos</a>
+               
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero-section">
+            <h1 class="main-title">Crée tes propres mèmes</h1>
+            <p class="app-description">
+                Un outil simple et efficace pour personnaliser tes images, ajouter du texte et les télécharger instantanément.
+            </p>
+        </section>
+
+        <!-- Text-Based Feature Carousel -->
+        <section class="text-carousel-container">
+            <h2 class="section-title-alt">Fonctionnalités Clés</h2>
+            <div class="text-carousel">
+                <div class="feature-card">
+                    <div class="card-icon"><i class="fas fa-arrows-alt"></i></div>
+                    <h3>Drag & Drop</h3>
+                    <p>Positionne tes textes librement par simple glisser-déposer sur l'image.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon"><i class="fas fa-magic"></i></div>
+                    <h3>Filtres Avancés</h3>
+                    <p>Applique des filtres (Noir & Blanc, Sépia, Flou) pour donner du style.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon"><i class="fas fa-save"></i></div>
+                    <h3>Stockage Local</h3>
+                    <p>Tes créations sont sauvegardées automatiquement dans ton navigateur.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon"><i class="fas fa-font"></i></div>
+                    <h3>Édition Live</h3>
+                    <p>Change la taille, la couleur et le texte avec un aperçu immédiat.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Responsive Design</h3>
+                    <p>Une expérience fluide sur tous tes écrans, du mobile au desktop.</p>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-bar"></div>
+            </div>
+        </section>
+
+        <div id="editor" class="editor-layout"> 
+            <!-- Left Panel -->
+            <aside class="left-panel">
+                <h3 class="section-title">Réglages</h3>
+
+                <div class="input-group">
+                    <label for="imageInput" class="file-label">
+                        <span><i class="fas fa-image"></i> Choisir une image</span>
+                    </label>
+                    <input type="file" id="imageInput" accept="image/*">
+                </div>
+
+                <div class="input-group">
+                    <label>Textes</label>
+                    <input type="text" id="topText" placeholder="Texte du haut">
+                    <input type="text" id="bottomText" placeholder="Texte du bas">
+                </div>
+
+                <div class="customization">
+                    <div class="control-row">
+                        <div class="control-item">
+                            <label>Couleur</label>
+                            <input type="color" id="textColor" value="#ffffff">
+                        </div>
+                        <div class="control-item">
+                            <label>Taille</label>
+                            <input type="range" id="textSize" min="10" max="80" value="32">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Filtre d'image</label>
+                        <select id="filterSelect">
+                            <option value="none">Normal</option>
+                            <option value="grayscale(100%)">Noir et blanc</option>
+                            <option value="sepia(100%)">Vieux film</option>
+                            <option value="invert(100%)">Négatif</option>
+                            <option value="blur(4px)">Flou</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="downloadBtn" class="primary-action">
+                        Enregistrer l'image
+                    </button>
+                    <button id="clearHistoryBtn" class="secondary-action">
+                        Vider la galerie
+                    </button>
+                </div>
+
+                <div class="share-section">
+                    <p class="share-title">Partager ma création</p>
+                    <div class="share-buttons">
+                        <button id="whatsappBtn" class="share-btn whatsapp" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                        <button id="facebookBtn" class="share-btn facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button id="twitterBtn" class="share-btn twitter" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                    </div>
+                </div>
+            </aside>
+        
+            <!-- Center Panel -->
+            <section class="center-panel">
+                <div class="meme-container">
+                    <img id="memeImage" src="images/chameau.jpg" alt="Aperçu">
+                    <h2 id="textTop" class="draggable"></h2>
+                    <h2 id="textBottom" class="draggable"></h2>
+                </div>
+            </section>
+
+            <!-- Right Panel -->
+            <aside class="right-panel">
+                <h3 class="section-title">Modèles prêts</h3>
+                <div class="sidebar-gallery">
+                    <img src="images/chat.jpg" class="template">
+                    <img src="images/chat1.jpg" class="template">
+                    <img src="images/chameau.jpg" class="template">
+                    <img src="images/chameau2.jpg" class="template">
+                </div>
+                
+            </aside>
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="about-project">
+            <h2 class="section-title-alt">À propos du projet</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-code"></i>
+                    <h4>Stack Technique</h4>
+                    <p>Développé en Vanilla JavaScript pour une performance optimale sans dépendances.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-database"></i>
+                    <h4>Persistance</h4>
+                    <p>Utilisation du LocalStorage pour conserver tes créations en mémoire.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-desktop"></i>
+                    <h4>Interface</h4>
+                    <p>Design épuré et entièrement responsive pour tous les supports.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section class="history-container">
+            <h2 class="history-header">Mes dernières créations</h2>
+            <div id="historyGallery"></div>
+        </section>
+
+    </main>
+
+    <footer class="footer-portfolio">
+        <div class="footer-content">
+            <p>&copy; 2026 - Meme . Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
