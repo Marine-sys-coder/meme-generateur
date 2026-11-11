@@ -1,6 +1,6 @@
-#  Meme SupInfo
+#  Meme Générateur
 
-Un générateur de mèmes, rapide et responsive, conçu en JavaScript pur. Ce projet a été développé pour un rendu académique.
+Un générateur de mèmes, rapide et responsive, conçu en JavaScript pur.
 
 ##  Fonctionnalités
 - **Édition en temps réel** : Personnalisation instantanée du texte (haut/bas), de la couleur et de la taille.
